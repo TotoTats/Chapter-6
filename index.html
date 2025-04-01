@@ -6,14 +6,21 @@
 	<link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <style>
+	html {
+     width: 100%;
+     height: 100%;
+	}
 	body {
 	margin: 1rem;
-	background-color: black;
+	background: url("assets/img/flames.gif") no-repeat center/cover;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	background-color: green;
 	color: whitesmoke;
 	font-size: 5rem;
 	overflow: hidden;
 	}
-	
 	.grid-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -21,7 +28,6 @@
 		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 		margin: 15% 4rem 0 4rem;
 	}
-
 	.last {
 		padding-bottom: 2rem;
 		border-bottom: 2px solid rgb(220, 200, 180);
