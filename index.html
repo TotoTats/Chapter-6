@@ -61,6 +61,7 @@ function randomNumber (min, max) {
 //define divs variable
 let divs = document.querySelectorAll(".grid-container div")
 
+function randomize() {
 //apply only to each of the div tags
 divs.forEach(function (div) {
     let scale = randomNumber(.5, 1.2);
@@ -76,6 +77,8 @@ divs.forEach(function (div) {
 	}
 	div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
 });
+}
+document.addEventListener("click", randomize);
 
 		let rotation = 0;
 		document.addEventListener("click", function () {
@@ -84,7 +87,6 @@ divs.forEach(function (div) {
 			rotation += Math.random() * (max - min) + min;
 			document.body.style.transform = `rotate(${rotation}deg)`;
 	    });
-		
 	</script>
 
 	<script src="./assets/js/main.js"></script>
