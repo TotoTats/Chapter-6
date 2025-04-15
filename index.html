@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Haiku</title>
+	<link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<style>
+	html {
+     width: 100%;
+     height: 100%;
+	}
+	body {
+	margin: 1rem;
+	background: url("img/candle-bokeh.jpg") no-repeat center/cover;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	background-color: #67b6f7;
+	color: whitesmoke;
+	font-size: 5rem;
+	overflow: hidden;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		margin: 15% 4rem 0 4rem;
+	}
+	.last {
+		padding-bottom: 2rem;
+		border-bottom: 2px solid rgb(220, 200, 180);
+	}
+
+	body {
+		transition-property: transform;
+		transition-duration: 3s;
+	}
+	</style>
+<body>
+	<div class="grid-container">
+		<div>Flickering</div>
+		<div>whispers,</div>
+		<div class="last">Candle</div>
+		<div>light</div>
+		<div>dances</div>
+		<div class="last">softly,</div>
+		<div class="last">Shadows</div>
+		<div>weave</div>
+		<div>their</div>
+		<div class="last">tales.</div>
+  </div>
+    <script>
+//	6.3
+
+function randomNumber (min, max) {
+	return (Math.random() * (max - min)) + min;
+}
+//define divs variable
+let divs = document.querySelectorAll(".grid-container div");
+
+function randomize () {
+//apply only to each of the div tags
+divs.forEach(function (div) {
+    let scale = randomNumber(.5, 1.2);
+    let translateX = randomNumber(0, 50);
+    let translateY = randomNumber (0, 20);
+	let rotate = randomNumber (0, 360);
+
+	//half of the time do this...
+	//don't affect scale
+	if (Math.random() > .5) {
+		scale = 1;
+		translateX = randomNumber (0, 80);
+		translateY = randomNumber (0, 80);
+	}
+	div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
+});
+}
+document.addEventListener("click", randomize);
+	</script>
+
+</body>
+</html>
